@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Plugin modal react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a modal converted from jquery to react.
 
-## Available Scripts
+It is publish to [NPM](<[NPM](https://https://www.npmjs.com/package/cj_modal_plugin)>).
 
-In the project directory, you can run:
+This project was initialized using Create React App.
 
-### `npm start`
+To install it you need node and npm and use the command
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`npm install`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run the project use the command
 
-### `npm test`
+`npm run start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+There is an example of the Modal component in App.js.
 
-### `npm run build`
+To edit this projects, do your changes, commit them and don't forget to publish the plugin :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm login
+npm run publish:npm
+npm publish
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To use it in your project you need to install it first from npm :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm i cj_modal_plugin`
 
-### `npm run eject`
+Then you have to import it :
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`import Modal from "cj_modal_plugin";`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+And use the code bellow :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+<Modal
+  show={showModal}
+  closeCallback={showCallback}
+  style={{ backgroundColor: "green" }}
+  >
+    Content oh the modal
+    <strong>content</strong>
+</Modal>
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The `show` props is a boolean, if true the modal is show, if false the modal is hidden.
 
-## Learn More
+The `closeCallback` props is a callback function that must be call to close the modal by changing the `show` props. You can additionnaly add specific behavior in this function. It is call when customer click on the cross.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The `style` props may contain additionnal style to customize the modal.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The children props can contain text or html that will be render into the modal.
